@@ -27,3 +27,5 @@ const server = https.createServer(sslOptions, (req, res) => {
 server.listen(443);
 
 console.log('Forwarding 0.0.0.0 to ' + target + ' on port 443');
+
+process.on('SIGINT', () => { console.log('Proxy server stopped'); server.close(); process.exit(); });
