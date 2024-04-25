@@ -1,16 +1,45 @@
-# Steps for QA
-1) Run local proxy
-  - `docker pull ghcr.io/deriv-experiments/deriv-proxy:latest`
-  - `docker run --rm -it --name deriv-proxy -p 443:443 ghcr.io/deriv-experiments/deriv-proxy:latest https://webflow.deriv.com`
+# Deriv Proxy
 
-2) Change hosts
-  - vim /etc/hosts
-  - 127.0.0.1 deriv.com
+This is a proxy that can be run via docker for use in testing websites.
 
-3) Visit https://deriv.com
+## Prerequisites
 
-4) Accept self signed certificate
+- Docker (to run the container)
+- Sudo (to change your hosts file)
 
-5) Regression test as normal
+## 1) Run Proxy
 
-6) Run docker rm deriv-proxy
+Run the proxy on your local machine
+```
+docker pull ghcr.io/deriv-experiments/deriv-proxy:latest`
+docker run --rm -it --name deriv-proxy -p 443:443 ghcr.io/deriv-experiments/deriv-proxy:latest https://webflow.deriv.com
+```
+
+## 2) Change hosts
+
+Update your hosts file to point the domain to your local host
+Run `vim /etc/hosts` or `nano /etc/hosts`
+
+Add the line:
+
+```
+127.0.0.1 deriv.com
+```
+
+## 3) Visit the page
+
+In your browser, visit https://deriv.com as normal. It should point to your local proxy transparently.
+
+## 4) Accept self signed certificate
+
+As we are proxying the requests, the certificate is not valid. You will need to bypass this by accepting the danger screens.
+
+## 5) Cleanup
+
+When you are finished you can hit `ctrl+c` on your terminal and the docker image will be cleaned up.
+
+Alternatively, you can run the below in another tab:
+
+```
+docker rm -f deriv-proxy
+```
