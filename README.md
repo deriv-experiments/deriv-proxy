@@ -1,6 +1,6 @@
 # Steps for QA
 1) Run local proxy
-  - docker run -n deriv-proxy -p 443:443 https://ghrp.io/deriv-experiments/webflow-proxy https://webflow.deriv.com
+  - docker run -n deriv-proxy -p 443:443 ghcr.io/deriv-experiments/deriv-proxy https://webflow.deriv.com
 
 2) Change hosts
   - vim /etc/hosts

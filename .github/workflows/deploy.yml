@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_NAME: deriv-proxy
-  REGISTRY: docker.pkg.github.com
+  REGISTRY: ghcr.io
   USERNAME: deriv-experiments
   TAG: ${{ github.sha }}
 
