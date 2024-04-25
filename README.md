@@ -11,7 +11,7 @@ This is a proxy that can be run via docker for use in testing websites.
 
 Run the proxy on your local machine
 ```
-docker pull ghcr.io/deriv-experiments/deriv-proxy:latest`
+docker pull ghcr.io/deriv-experiments/deriv-proxy:latest
 docker run --rm -it --name deriv-proxy -p 443:443 ghcr.io/deriv-experiments/deriv-proxy:latest https://webflow.deriv.com
 ```
 
